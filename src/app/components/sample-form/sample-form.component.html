@@ -1,0 +1,60 @@
+<!-- 
+    id1           |input|
+    id2           |input|
+    id3           |input|             <- validacja (min to jest random o 0 do 100)
+                  |total_value|       <- min = 100, max=10000
+                  |average_value|     <- min / max
+                  |count|             <- 1 - 10
+
+                  |add new input button|
+
+                  |submit button|
+ -->
+<form class="container" [formGroup]="form" [appTotalValueUpdater]="totalValueControl" [appCountValuesUpdater]="countValuesControl"
+    [appAverageValueUpdater]="averageValueControl" [inputsFormGroup]="inputsFormGroup">
+    <div class="row" *ngFor="let id of objectKeys(inputsFormGroup.controls)">
+        <mat-form-field class="col">
+            <input matInput placeholder="Input" [formControl]="inputsFormGroup.controls[id]">
+            <mat-error *ngIf="inputsFormGroup.controls[id].hasError('min')">
+                Value is too low, min = {{inputsFormGroup.controls[id].errors.min.min}}
+            </mat-error>
+            <mat-error *ngIf="inputsFormGroup.controls[id].hasError('max')">
+                Value is too high, max = {{inputsFormGroup.controls[id].errors.max.max}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field class="col">
+            <input matInput readonly placeholder="Total Value" [formControl]="totalValueControl">
+            <mat-error *ngIf="totalValueControl.hasError('min')">
+                Value is too low, min = {{totalValueControl.errors.min.min}}
+            </mat-error>
+            <mat-error *ngIf="totalValueControl.hasError('max')">
+                Value is too high, max = {{totalValueControl.errors.max.max}}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="col">
+            <input matInput readonly placeholder="Average Value" [formControl]="averageValueControl">
+            <mat-error *ngIf="averageValueControl.hasError('min')">
+                Value is too low, min = {{averageValueControl.errors.min.min}}
+            </mat-error>
+            <mat-error *ngIf="averageValueControl.hasError('max')">
+                Value is too high, max = {{averageValueControl.errors.max.max}}
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="col">
+            <input matInput readonly placeholder="Count" [formControl]="countValuesControl">
+            <mat-error *ngIf="countValuesControl.hasError('min')">
+                Value is too low, min = {{countValuesControl.errors.min.min}}
+            </mat-error>
+            <mat-error *ngIf="countValuesControl.hasError('max')">
+                Value is too high, max = {{countValuesControl.errors.max.max}}
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <button mat-stroked-button [disabled]="form.invalid">
+            Submit
+        </button>
+    </div>
+</form>

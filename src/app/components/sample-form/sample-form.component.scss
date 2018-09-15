@@ -1,0 +1,15 @@
+.container {
+    padding: 30px 30px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.row {
+    display: flex;
+}
+
+.col {
+    padding: 0px 10px;
+    max-width: 200px;
+}
