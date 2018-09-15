@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
-import { SampleFormInputItemComponent } from './components/sample-form-input-item/sample-form-input-item.component';
 import { TotalValueUpdaterDirective } from './directives/total-value-updater.directive';
 import { AverageValueUpdaterDirective } from './directives/average-value-updater.directive';
 import { CountValuesUpdaterDirective } from './directives/count-values-updater.directive';
@@ -17,7 +16,6 @@ import {MatButtonModule} from '@angular/material/button';
     declarations: [
         AppComponent,
         SampleFormComponent,
-        SampleFormInputItemComponent,
         TotalValueUpdaterDirective,
         AverageValueUpdaterDirective,
         CountValuesUpdaterDirective

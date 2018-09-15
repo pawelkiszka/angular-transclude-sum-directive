@@ -3,7 +3,6 @@ import { SampleFormBuilder } from "./sample-form.builder";
 import { FormGroup } from "@angular/forms";
 import { totalValueConstrains, averageValueContrains, countValuesContrains, generateUniqueId, generateRandomInputContrains } from "../models/sample-form-source.model";
 
-
 @Injectable({
     providedIn: 'root'
 })
